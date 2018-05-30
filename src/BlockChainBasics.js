@@ -36,6 +36,6 @@ class BlockChain {
 
 let demoCoin = new BlockChain();
 demoCoin.addBlock(new Block(1,'30/5/2018', {name:'Brajesh',Amount:'$100'}))
-demoCoin.addBlock(new Block(1,'31/5/2018', {name:'Rajesh',Amount:'$200'}))
+demoCoin.addBlock(new Block(2,'31/5/2018', {name:'Rajesh',Amount:'$200'}))
 
 console.log(JSON.stringify(demoCoin, null, 100));
