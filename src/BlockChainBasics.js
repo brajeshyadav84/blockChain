@@ -32,10 +32,24 @@ class BlockChain {
 		newBlock.hash = newBlock.generateHash();
 		this.chain.push(newBlock);
 	}
+
+	isValidateBlock() {
+		for (var i = 1; i < this.chain.length; i++) {
+			const currentBlock = this.chain[i];
+			const previousBlock = this.chain[i-1];
+			if((currentBlock.hash !== currentBlock.generateHash()) || (currentBlock.previousHash !== previousBlock.hash)){
+				return false;
+			}
+		}
+		return true;
+	}
 }
 
 let demoCoin = new BlockChain();
 demoCoin.addBlock(new Block(1,'30/5/2018', {name:'Brajesh',Amount:'$100'}))
 demoCoin.addBlock(new Block(2,'31/5/2018', {name:'Rajesh',Amount:'$200'}))
+
+console.log("Validate blockchain");
+console.log(demoCoin.isValidateBlock());
 
 console.log(JSON.stringify(demoCoin, null, 100));
