@@ -1,6 +1,8 @@
 # blockChain
 blockChain Implementation using javascript
 
+1. BockChain Basics (immutable blockchain)
+=================================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 run application use below command
 node src/BlockChainBasics.js
 
@@ -41,6 +43,19 @@ true
                     }
           ]
 }
+
+
+
+2. Mining Implementation (it's also called proof of work implementation machanism)
+we’ll implement a ‘proof of work’. Here you have to prove that you have spent a lot of computing power in making a block. This process is called mining.
+========================================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+run application use below command
+node src/MiningImplementation.js
+
+Result :
+========
+
+
 
 
 
