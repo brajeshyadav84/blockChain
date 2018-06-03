@@ -40,7 +40,7 @@ class Block {
 class Blockchain{
     constructor() {
         this.chain = [this.createGenesisBlock()];
-        this.difficulty = 4;
+        this.difficulty = 2;
         this.pendingTransactions = [];
         this.miningReward = 100;
     }
@@ -73,7 +73,6 @@ class Blockchain{
         let balance = 0;
 
         for(const block of this.chain){
-            console.log(block);
             for(const trans of block.data){
                 if(trans.fromAddress === address){
                     balance -= trans.amount;
@@ -84,8 +83,14 @@ class Blockchain{
                 }
             }
         }
-
         return balance;
+    }
+
+    isValidTransaction(balance) {
+        if(balance < 0) {
+            return false
+        }
+        return true
     }
 
     isValidateBlock() {
@@ -103,11 +108,13 @@ class Blockchain{
 let demoMinerCoin = new Blockchain();
 demoMinerCoin.createTransaction(new Transaction('Brajesh Account', 'Amit Account', 10));
 demoMinerCoin.createTransaction(new Transaction('Amit Account', 'Saurabh Account', 4));
+demoMinerCoin.createTransaction(new Transaction('Amit Account', 'Brajesh Account', 2));
 
 demoMinerCoin.minePendingTransactions(1, 'Brajesh Account');
 
-console.log('\nBrajesh Account balance is', demoMinerCoin.getBalanceOfAddress('Brajesh Account'));
+console.log(JSON.stringify(demoMinerCoin, null, 100)); // last two parameter is used for JSON result indentation
+console.log("=====================================================================================");
+
 console.log('\nAmit Account balance is', demoMinerCoin.getBalanceOfAddress('Amit Account'));
 console.log('\nSaurabh Account balance is', demoMinerCoin.getBalanceOfAddress('Saurabh Account'));
-
-console.log(JSON.stringify(demoMinerCoin, null, 100)); // last two parameter is used for JSON result indentation
+console.log('\nBrajesh Account balance is', demoMinerCoin.getBalanceOfAddress('Brajesh Account'));

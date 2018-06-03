@@ -96,6 +96,67 @@ true
           "difficulty": 4
 }
 
+3. BlockChain Transaction
+========================================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+run application use below command
+node src/TransactionImplementation.js
+
+Result :
+========
+Block successfully mined!
+
+{
+          "chain": [
+                    {
+                              "index": 0,
+                              "timestamp": "30/5/2018",
+                              "data": [],
+                              "previousHash": "0",
+                              "hash": "33b5bc790659f2281b26b1547c6261aef85bdf0c060574aef090f5eb990a3440",
+                              "nonce": 0
+                    },
+                    {
+                              "index": 1,
+                              "timestamp": 1528017125564,
+                              "data": [
+                                        {
+                                                  "fromAddress": "Brajesh Account",
+                                                  "toAddress": "Amit Account",
+                                                  "amount": 10
+                                        },
+                                        {
+                                                  "fromAddress": "Amit Account",
+                                                  "toAddress": "Saurabh Account",
+                                                  "amount": 4
+                                        },
+                                        {
+                                                  "fromAddress": "Amit Account",
+                                                  "toAddress": "Brajesh Account",
+                                                  "amount": 2
+                                        }
+                              ],
+                              "previousHash": "33b5bc790659f2281b26b1547c6261aef85bdf0c060574aef090f5eb990a3440",
+                              "hash": "005ed193e3b4cd9335f50b4e413638b4114da9b327845b66fdd9ba54eddcabf9",
+                              "nonce": 3
+                    }
+          ],
+          "difficulty": 2,
+          "pendingTransactions": [
+                    {
+                              "fromAddress": null,
+                              "toAddress": "Brajesh Account",
+                              "amount": 100
+                    }
+          ],
+          "miningReward": 100
+}
+=====================================================================================
+
+Amit Account balance is 4
+
+Saurabh Account balance is 4
+
+Brajesh Account balance is -8
 
 
 
